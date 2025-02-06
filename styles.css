@@ -263,18 +263,40 @@ span.score {
   background: transparent;
 }
 
-.pentagon {
+.you-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: -5rem;
+}
+
+.you-result span {
+  color: hsl(0, 3%, 85%);
+  font-size: 4rem;
+}
+
+.you-result button {
+  padding: 0.8rem 3rem;
+  background-color: hsl(0, 3%, 85%);
+  border-radius: 0.5rem;
+  border: 3px solid hsl(0, 3%, 85%);
+  color: hsl(229, 25%, 31%);
+  font-weight: 700;
+  letter-spacing: 3px;
+  width: 15rem;
+}
+
+.picked-page {
   display: none;
 }
 
 .you-result {
-    
+  display: none;
 }
 
-/* .picked-page {
+/* .pentagon {
   display: none;
-} */
-
-/* .you-result {
-    display: none;
 } */
