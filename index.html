@@ -3,14 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/sherif.favicon"
-    />
     <link
       rel="icon"
       type="image/png"
@@ -27,91 +19,49 @@
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
   </head>
   <body>
-    <div class="rules-backgroud-close">
-      <h1>RULES</h1>
-      <img src="images/image-rules-bonus.svg" alt="" />
-      <div class="close-rules-div">
-        <img class="close-rules" src="images/icon-close.svg" alt="" />
-      </div>
+    <div class="container">
+      <header class="header">
+        <img src="images/logo.svg" alt="logo" />
+        <div class="score">
+          <div class="score_title">score</div>
+          <div class="score_number">12</div>
+        </div>
+      </header>
+      <section class="game">
+        <button class="choice-btn" data-choice="paper">
+          <div class="choice paper">
+            <img src="images/icon-paper.svg" alt="paper" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="scissors">
+          <div class="choice Scissors">
+            <img src="images/icon-scissors.svg" alt="Scissors" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="rock">
+          <div class="choice rock">
+            <img src="images/icon-rock.svg" alt="rock" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="spock">
+          <div class="choice spock">
+            <img src="images/icon-spock.svg" alt="spock" />
+          </div>
+        </button>
+        <button class="choice-btn" data-choice="lizard">
+          <div class="choice lizard">
+            <img src="images/icon-lizard.svg" alt="lizard" />
+          </div>
+        </button>
+      </section>
     </div>
-    <main>
-      <div class="rules">
-        <div class="rules-header">
-          <h1>RULES</h1>
-          <img src="images/icon-close.svg" alt="" />
-        </div>
-        <img src="images/image-rules.svg" alt="" />
-      </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
 
-      <div class="header">
-        <div class="header-text">
-          <span>ROCK</span>
-          <span>PAPER</span>
-          <span>SCISSORS</span>
-          <span>LIZARD</span>
-          <span>SPOCK</span>
-        </div>
-        <div class="score-div">
-          <span>SCORE</span>
-          <span class="score">12</span>
-        </div>
-      </div>
-
-      <div class="pentagon">
-        <div class="scissors-container">
-          <img src="images/icon-scissors.svg" alt="" class="scissors" />
-        </div>
-        <div class="spoke-container">
-          <img src="images/icon-spock.svg" alt="" class="spoke" />
-        </div>
-        <div class="paper-container">
-          <img src="images/icon-paper.svg" alt="" class="paper" />
-        </div>
-        <div class="lizard-container">
-          <img src="images/icon-lizard.svg" alt="" class="lizard" />
-        </div>
-        <div class="rock-container">
-          <img src="images/icon-rock.svg" alt="" class="rock" />
-        </div>
-
-        <img src="images/bg-pentagon.svg" alt="" class="pentagon-img" />
-      </div>
-
-      <div class="picked-page">
-        <div class="you-picked-page">
-          <div class="you-picked-containtainer">
-            <img src="images/icon-scissors.svg" alt="" class="picked-image" />
-          </div>
-          <span class="you-picked">YOU PICKED</span>
-        </div>
-        <div class="house-picked">
-          <div class="house-picked-container">
-            <!-- <img src="" alt="" class="house-picked-image" /> -->
-            <div></div>
-          </div>
-          <span class="house-picked">THE HOUSE PICKED</span>
-        </div>
-      </div>
-
-      <div class="you-result">
-        <span>YOU WIN</span>
-        <button>PLAY AGAIN</button>
-      </div>
-
-      <div class="rules-btn">
-        <button>RULES</button>
-      </div>
-
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >
-        Coded by <a href="https://x.com/thesheriflawal">Sherif Lawal</a>
-      </div>
-    </main>
-
-    <script src="game.js"></script>
     <script src="sandbox.js"></script>
   </body>
 </html>
