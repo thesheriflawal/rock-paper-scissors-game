@@ -15,6 +15,8 @@
   --lizard-2: hsl(261, 72%, 63%);
   --spock-1: hsl(189, 59%, 53%);
   --spock-2: hsl(189, 58%, 57%);
+  --shadow-light: #00000026;
+  --shadow-med: #0000004d;
 }
 
 * {
@@ -33,7 +35,7 @@ body {
 /* Main content */
 .container {
   position: relative;
-  max-width: 700pz;
+  max-width: 700px;
   margin: 0 auto;
   padding-top: 2rem;
 }
@@ -84,6 +86,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 100px);
   gap: 10px;
+  row-gap: 6rem;
   place-items: center;
   height: 30rem;
   padding-top: 4rem;
@@ -115,15 +118,59 @@ body {
   border-radius: 50%;
   display: grid;
   place-items: center;
+  box-shadow: inset 0 0.5rem var(--shadow-light);
 }
 
-.choice::before {
+.choice::before,
+.choice::after {
   content: "";
   position: absolute;
   left: -15%;
   top: -15%;
   width: 130%;
   height: 130%;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.choice::after {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.choice-btn:focus .choice::after {
+  opacity: 1;
+  box-shadow: 0 0 0 2rem #223351;
+  z-index: -2;
+}
+
+.choice img {
+  transform: scale(1.5);
+}
+
+.choice.paper::before {
+  background: linear-gradient(to bottom, var(--paper-1), var(--paper-2));
+  box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--paper-2);
+}
+
+.choice.scissors::before {
+  background: linear-gradient(to bottom, var(--scissors-1), var(--scissors-2));
+  box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--scissors-2);
+}
+
+.choice.rock::before {
+  background: linear-gradient(to bottom, var(--rock-1), var(--rock-2));
+  box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--rock-2);
+}
+
+.choice.lizard::before {
+  background: linear-gradient(to bottom, var(--lizard-1), var(--lizard-2));
+  box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--lizard-2);
+}
+
+.choice.spock::before {
+  background: linear-gradient(to bottom, var(--spock-1), var(--spock-2));
+  box-shadow: 0 0.5rem var(--shadow-med), 0 0.5rem var(--spock-2);
 }
 
 .choice-btn[data-choice="scissors"] {
@@ -151,10 +198,60 @@ body {
   grid-row: 3;
 }
 
+/* rules button */
+.rules-btn {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  background: none;
+  outline: none;
+  border: 2px solid var(--outline);
+  border-radius: 0.6rem;
+  color: var(--light-text);
+  padding: 0.6rem 2.5rem;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: 1.3rem;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+.rules-btn:focus {
+  border: 2px solid #fff;
+}
+
+/* Rules Modal */
+.modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  background: var(--shadow-med);
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.modal_container {
+}
+
+/* footer */
+.footer {
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  padding: 0 2rem;
+  text-align: center;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
 }
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: #ff652f;
+  text-decoration: none;
 }
