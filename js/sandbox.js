@@ -56,6 +56,9 @@ const gameDiv = document.querySelector(".game");
 const resultsDiv = document.querySelector(".results");
 const resultDivs = document.querySelectorAll(".results_result");
 
+const resultWinner = document.querySelector(".results_winner");
+const resultText = document.querySelector(".results_text");
+
 // Game Logic
 choiceButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -68,6 +71,7 @@ choiceButtons.forEach((button) => {
 function choose(choice) {
   const aichoice = aiChoose();
   displayResults([choice, aichoice]);
+  displyWinner([choice, aichoice]);
 }
 
 function aiChoose() {
@@ -76,7 +80,39 @@ function aiChoose() {
 }
 
 function displayResults(results) {
-  resultDivs.forEach((resultDiv, idx) => {});
+  resultDivs.forEach((resultDiv, idx) => {
+    setTimeout(() => {
+      resultDiv.innerHTML = `
+      <div class="choice ${results[idx].name}">
+      <img src="images/icon-${results[idx].name}.svg" alt="${results[idx].name}" />
+      </div>
+      `;
+    }, idx * 1000);
+  });
+
+  gameDiv.classList.toggle("hidden");
+  resultsDiv.classList.toggle("hidden");
+}
+
+function displyWinner(results) {
+  setTimeout(() => {
+    const userWins = isWinner(results);
+    const aiWins = isWinner(results.reverse());
+
+    if (userWins) {
+      resultText.innerHTML = "you win";
+    } else if (aiWins) {
+      resultText.innerHTML = "you lose";
+    } else {
+      resultText.innerHTML = "draw";
+    }
+    resultWinner.classList.toggle("hidden");
+    resultsDiv.classList.toggle("show-winner");
+  }, 1000);
+}
+
+function isWinner(results) {
+  return results[0].beats === results[1].name;
 }
 
 // Show/ Hide Rules
