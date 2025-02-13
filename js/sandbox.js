@@ -59,10 +59,25 @@ const resultDivs = document.querySelectorAll(".results_result");
 // Game Logic
 choiceButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const choiceName = button;.dataset.choice;
-    const choice = CHOICES.find(choice => choice.name === choiceName)
+    const choiceName = button.dataset.choice;
+    const choice = CHOICES.find((choice) => choice.name === choiceName);
+    choose(choice);
   });
 });
+
+function choose(choice) {
+  const aichoice = aiChoose();
+  displayResults([choice, aichoice]);
+}
+
+function aiChoose() {
+  const rand = Math.floor(Math.random() * CHOICES.length);
+  return CHOICES[rand];
+}
+
+function displayResults(results) {
+  resultDivs.forEach((resultDiv, idx) => {});
+}
 
 // Show/ Hide Rules
 btnRules.addEventListener("click", () => {
