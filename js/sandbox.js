@@ -58,6 +58,9 @@ const resultDivs = document.querySelectorAll(".results_result");
 
 const resultWinner = document.querySelector(".results_winner");
 const resultText = document.querySelector(".results_text");
+const playAgainBtn = document.querySelector(".play-again");
+const scoreNumber = document.querySelector(".score_number");
+let score = 0;
 
 // Game Logic
 choiceButtons.forEach((button) => {
@@ -101,8 +104,12 @@ function displyWinner(results) {
 
     if (userWins) {
       resultText.innerHTML = "you win";
+      resultDivs[0].classList.toggle("winner");
+      keepScore(1);
     } else if (aiWins) {
       resultText.innerHTML = "you lose";
+      resultDivs[1].classList.toggle("winner");
+      keepScore(-1);
     } else {
       resultText.innerHTML = "draw";
     }
@@ -111,9 +118,29 @@ function displyWinner(results) {
   }, 1000);
 }
 
+function keepScore(point) {
+  score += point;
+  scoreNumber.innerText = score;
+}
+
 function isWinner(results) {
   return results[0].beats === results[1].name;
 }
+
+// Play Again
+playAgainBtn.addEventListener("click", () => {
+  gameDiv.classList.toggle("hidden");
+  resultsDiv.classList.toggle("hidden");
+
+  resultDivs.forEach((resultDiv) => {
+    resultDiv.innerHTML = "";
+    resultDiv.classList.remove("winner");
+  });
+
+  resultText.innerHTML = "";
+  resultWinner.classList.toggle("hidden");
+  resultsDiv.classList.toggle("show-winner");
+});
 
 // Show/ Hide Rules
 btnRules.addEventListener("click", () => {
