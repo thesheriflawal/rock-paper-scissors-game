@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
   </head>
-  <body>
+  <body class="preload">
     <div class="container">
       <header class="header">
         <img src="images/logo.svg" alt="logo" />
@@ -56,7 +56,15 @@
       </section>
     </div>
 
+    <section class="results">
+      <h2 class="results-heading">you picked</h2>
+      <h2 class="results-heading">the house picked</h2>
+      <div class="results_result"></div>
+      <div class="results_result"></div>
+    </section>
+
     <button class="rules-btn" tabindex="1">rules</button>
+    <!-- <div class="modal-close"></div> -->
     <div class="modal">
       <div class="modal_container">
         <header class="modal_header">
@@ -65,7 +73,11 @@
             <img src="images/icon-close.svg" alt="close button" />
           </button>
         </header>
-        <img src="images/image-rules.svg" alt="rules image" />
+        <img
+          src="images/image-rules-bonus.svg"
+          alt="rules image"
+          class="rules-img"
+        />
       </div>
     </div>
     <footer class="footer">
@@ -77,6 +89,6 @@
       </div>
     </footer>
 
-    <script src="sandbox.js"></script>
+    <script src="js/sandbox.js"></script>
   </body>
 </html>

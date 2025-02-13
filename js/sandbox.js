@@ -1,11 +1,76 @@
-const rulesBtn = document.querySelector(".rules-btn button");
-const rules = document.querySelector(".rules-backgroud-close");
-const closeRules = document.querySelector(".close-rules-div");
+// Prevent animation on load
+setTimeout(() => {
+  document.body.classList.remove("preload");
+}, 500);
 
-rulesBtn.addEventListener("click", () => {
-  rules.style.display = "block";
+// DOM
+const btnRules = document.querySelector(".rules-btn");
+const btnClose = document.querySelector(".close-btn");
+const modalRUles = document.querySelector(".modal");
+
+const CHOICES = [
+  {
+    name: "paper",
+    beats: "rock",
+  },
+  {
+    name: "paper",
+    beats: "spock",
+  },
+  {
+    name: "scissors",
+    beats: "paper",
+  },
+  {
+    name: "scissors",
+    beats: "lizard",
+  },
+  {
+    name: "spock",
+    beats: "scissors",
+  },
+  {
+    name: "spock",
+    beats: "rock",
+  },
+  {
+    name: "lizard",
+    beats: "spock",
+  },
+  {
+    name: "lizard",
+    beats: "paper",
+  },
+  {
+    name: "rock",
+    beats: "lizard",
+  },
+  {
+    name: "rock",
+    beats: "scissors",
+  },
+];
+
+const choiceButtons = document.querySelectorAll(".choice-btn");
+const gameDiv = document.querySelector(".game");
+const resultsDiv = document.querySelector(".results");
+const resultDivs = document.querySelectorAll(".results_result");
+
+// Game Logic
+choiceButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const choiceName = button;.dataset.choice;
+    const choice = CHOICES.find(choice => choice.name === choiceName)
+  });
 });
 
-closeRules.addEventListener("click", () => {
-  rules.style.display = "none";
+// Show/ Hide Rules
+btnRules.addEventListener("click", () => {
+  modalRUles.classList.toggle("show-modal");
 });
+btnClose.addEventListener("click", () => {
+  modalRUles.classList.toggle("show-modal");
+});
+// modalClose.addEventListener("click", () => {
+//   modalRUles.classList.toggle("show-modal");
+// });

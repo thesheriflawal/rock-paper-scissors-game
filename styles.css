@@ -198,6 +198,47 @@ body {
   grid-row: 3;
 }
 
+/* Results */
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  grid-template-areas:
+    "you-title ai-title"
+    "you-picked ai-picked";
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.results_heading {
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  padding: 4rem 0 8rem;
+}
+
+.results_result {
+  min-width: 10rem;
+  min-height: 10rem;
+  background: #16213d;
+  border-radius: 50%;
+}
+
+.results_heading:first-of-type {
+  grid-area: you-title;
+}
+
+.results_heading:first-of-type {
+  grid-area: ai-title;
+}
+
+.results_result:first-of-type {
+  grid-area: you-picked;
+}
+
+.results_result:first-of-type {
+  grid-area: ai-picked;
+}
+
 /* rules button */
 .rules-btn {
   position: absolute;
@@ -221,7 +262,8 @@ body {
 }
 
 /* Rules Modal */
-.modal {
+.modal,
+.modal-close {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -231,11 +273,46 @@ body {
   display: grid;
   place-items: center;
   background: var(--shadow-med);
+  opacity: 0;
   transition: opacity 0.3s ease-in-out;
   pointer-events: none;
 }
 
+/* .modal-close {
+  z-index: 3;
+} */
+
 .modal_container {
+  background: #fff;
+  border-radius: 0.5rem;
+}
+
+.modal_header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 2rem 2rem 1rem;
+}
+
+.modal_heading {
+  font-size: 1.5rem;
+  color: var(--dark-text);
+}
+
+.close-btn {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.rules-img {
+  padding: 2rem 4rem;
+}
+
+.show-modal {
+  opacity: 1;
+  pointer-events: initial;
 }
 
 /* footer */
@@ -254,4 +331,9 @@ body {
 .attribution a {
   color: #ff652f;
   text-decoration: none;
+}
+
+/* Utilities */
+.preload * {
+  transition: none;
 }
