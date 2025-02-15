@@ -11,43 +11,23 @@ const modalRUles = document.querySelector(".modal");
 const CHOICES = [
   {
     name: "paper",
-    beats: "rock",
-  },
-  {
-    name: "paper",
-    beats: "spock",
+    beats: ["rock", "spock"],
   },
   {
     name: "scissors",
-    beats: "paper",
-  },
-  {
-    name: "scissors",
-    beats: "lizard",
-  },
-  {
-    name: "spock",
-    beats: "scissors",
-  },
-  {
-    name: "spock",
-    beats: "rock",
-  },
-  {
-    name: "lizard",
-    beats: "spock",
-  },
-  {
-    name: "lizard",
-    beats: "paper",
+    beats: ["paper", "lizard"],
   },
   {
     name: "rock",
-    beats: "lizard",
+    beats: ["scissors", "lizard"],
   },
   {
-    name: "rock",
-    beats: "scissors",
+    name: "lizard",
+    beats: ["spock", "paper"],
+  },
+  {
+    name: "spock",
+    beats: ["scissors", "rock"],
   },
 ];
 
@@ -124,7 +104,7 @@ function keepScore(point) {
 }
 
 function isWinner(results) {
-  return results[0].beats === results[1].name;
+  return results[0].beats.includes(results[1].name);
 }
 
 // Play Again
